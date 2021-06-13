@@ -92,14 +92,19 @@ class Binance {
   }
 
   async buyWithPercentageOfCollateral(symbol, boughtAsset, collateralAsset, percentage){
-    const symbolPrice = await this.getPrice(symbol)
-    const collateralAmountTotal = await this.checkBalance(collateralAsset)
-    const collaretalToSpend = percentage * collateralAmountTotal / 100
-    const assetAmountToBuy = (collaretalToSpend * (1/symbolPrice)).toFixed(4)
-    console.log('assetAmountToBuy: '+assetAmountToBuy)
-    const didItWork = await this.placeSpotOrder(symbol, 'BUY', 'MARKET', assetAmountToBuy)
-    const newAssetBalance = await this.checkBalance(boughtAsset)
-    return didItWork
+    try{
+      const symbolPrice = await this.getPrice(symbol)
+      const collateralAmountTotal = await this.checkBalance(collateralAsset)
+      const collaretalToSpend = percentage * collateralAmountTotal / 100
+      const assetAmountToBuy = (collaretalToSpend * (1/symbolPrice)).toFixed(4)
+      console.log('assetAmountToBuy: '+assetAmountToBuy)
+      const didItWork = await this.placeSpotOrder(symbol, 'BUY', 'MARKET', assetAmountToBuy)
+      const newAssetBalance = await this.checkBalance(boughtAsset)
+      return didItWork
+    }catch(error){
+      console.log(error)
+      return false
+    }
   }
 
   async placeSpotOrder(symbol, side, type, quantity){

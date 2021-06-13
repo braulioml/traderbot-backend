@@ -3,12 +3,11 @@ const axios = require('axios')
 
 class SignalRegister {
 
-  constructor(apiKey) {
-    this.connectionStatus = null
-    this.apiKey = apiKey
+  constructor() {
   }
 
-  async method() {
+  async saveSignal(signalParams) {
+    
   }
 
 }

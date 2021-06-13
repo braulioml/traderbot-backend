@@ -4,7 +4,6 @@ const express = require('express');
 const { sha512 } = require('js-sha512');
 const router = express.Router()
 const config = require('../modules/config')
-const mailer = require('../modules/mailer')
 const authMiddleware = require('../modules/authenticator')
 const onlyRegisteredAccess = authMiddleware(true, ['user', 'admin'])
 const onlyAdminAccess = authMiddleware(true, ['admin'])

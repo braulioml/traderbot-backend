@@ -8,6 +8,7 @@ let userSchema = new Schema({
   enabled: { type: Boolean, default: true },
   created_at: { type: Date, default: Date.now },
   binance_API_key: { type: String },
+  binance_API_secret: { type: String },
   balance: { type: Number, required: true, default: 0 }
 });
 

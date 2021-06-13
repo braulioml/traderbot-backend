@@ -2,8 +2,8 @@
 
 const mongoose = require('mongoose')
 
-const UserSchema = require('./schemas/UserSchema')
+const signalRegisterSchema = require('./schemas/signalRegisterSchema')
 
-const UserModel = mongoose.model('users', UserSchema)
+const UserModel = mongoose.model('signalRegister', signalRegisterSchema)
 
 module.exports = UserModel
