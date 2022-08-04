@@ -1,3 +1,3 @@
 # traderbot-backend
 
-![[block-diagram.jpg]]
+![Block diagram](/block-diagram.jpg)
